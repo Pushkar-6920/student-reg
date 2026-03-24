@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Registration — EduPortal</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Satoshi:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+<div class="app-wrap">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">🎓</div>
+      <span>EduPortal</span>
+    </div>
+    <div class="sidebar-hero">
+      <h1>Student<br/>Registration</h1>
+      <p>Academic Year 2025–26</p>
+    </div>
+    <nav class="step-nav" id="stepNav">
+      <div class="step-item active" data-step="1">
+        <div class="step-dot"><span>1</span></div>
+        <div class="step-info"><strong>Personal Info</strong><small>Name, DOB, Gender</small></div>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step-item" data-step="2">
+        <div class="step-dot"><span>2</span></div>
+        <div class="step-info"><strong>Academic Details</strong><small>Course, Institution</small></div>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step-item" data-step="3">
+        <div class="step-dot"><span>3</span></div>
+        <div class="step-info"><strong>Contact & Address</strong><small>Email, Phone, City</small></div>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step-item" data-step="4">
+        <div class="step-dot"><span>4</span></div>
+        <div class="step-info"><strong>Review & Submit</strong><small>Confirm details</small></div>
+      </div>
+    </nav>
+    <div class="sidebar-footer">Need help? <a href="#">support@eduportal.in</a></div>
+  </aside>
+
+  <!-- MAIN FORM AREA -->
+  <main class="main-area">
+    <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+
+    <form id="regForm" novalidate>
+
+      <!-- ── STEP 1 ── -->
+      <div class="step-panel active" id="panel1">
+        <div class="panel-head">
+          <span class="badge">Step 1 / 4</span>
+          <h2>Personal Information</h2>
+          <p>Fill in your personal details accurately as per your documents.</p>
+        </div>
+        <div class="grid2">
+          <div class="field">
+            <label>First Name <em>*</em></label>
+            <input type="text" name="firstName" placeholder="e.g. Aarav" required/>
+            <span class="err"></span>
+          </div>
+          <div class="field">
+            <label>Last Name <em>*</em></label>
+            <input type="text" name="lastName" placeholder="e.g. Sharma" required/>
+            <span class="err"></span>
+          </div>
+          <div class="field">
+            <label>Date of Birth <em>*</em></label>
+            <input type="date" name="dob" required/>
+            <span class="err"></span>
+          </div>
+          <div class="field">
+            <label>Gender <em>*</em></label>
+            <select name="gender" required>
+              <option value="">Select gender</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Non-binary</option>
+              <option>Prefer not to say</option>
+            </select>
+            <span class="err"></span>
+          </div>
+          <div class="field span2">
+            <label>Nationality <em>*</em></label>
+            <input type="text" name="nationality" placeholder="e.g. Indian" value="Indian" required/>
+            <span class="err"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── STEP 2 ── -->
+      <div class="step-panel" id="panel2">
+        <div class="panel-head">
+          <span class="badge">Step 2 / 4</span>
+          <h2>Academic Details</h2>
+          <p>Tell us about your educational background and programme preference.</p>
+        </div>
+        <div class="grid2">
+          <div class="field span2">
+            <label>Programme / Course <em>*</em></label>
+            <select name="courseId" id="courseSelect" required>
+              <option value="">Loading courses...</option>
+            </select>
+            <span class="err"></span>
+          </div>
+          <div class="field">
+            <label>Enrollment Year <em>*</em></label>
+            <select name="enrollYear" required>
+              <option value="">Select year</option>
+              <option>2024</option>
+              <option>2025</option>
+              <option>2026</option>
+            </select>
+            <span class="err"></span>
+          </div>
+          <div class="field">
+            <label>Scholarship Interest</label>
+            <select name="scholarship">
+              <option value="0">No</option>
+              <option value="1">Yes — apply for scholarship</option>
+            </select>
+          </div>
+          <div class="field span2">
+            <label>Previous Institution <em>*</em></label>
+            <input type="text" name="prevInstitution" placeholder="e.g. Delhi Public School" required/>
+            <span class="err"></span>
+          </div>
+          <div class="field span2">
+            <label>Previous Grade / CGPA <em>*</em></label>
+            <input type="text" name="prevGrade" placeholder="e.g. 9.2 / A+" required/>
+            <span class="err"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── STEP 3 ── -->
+      <div class="step-panel" id="panel3">
+        <div class="panel-head">
+          <span class="badge">Step 3 / 4</span>
+          <h2>Contact & Address</h2>
+          <p>Provide your current contact details and residential address.</p>
+        </div>
+        <div class="grid2">
+          <div class="field">
+            <label>Email Address <em>*</em></label>
+            <input type="email" name="email" placeholder="you@email.com" required/>
+            <span class="err"></span>
+          </div>
+          <div class="field">
+            <label>Phone Number <em>*</em></label>
+            <input type="tel" name="phone" placeholder="+91 98765 43210" required/>
+            <span class="err"></span>
+          </div>
+          <div class="field span2">
+            <label>Street Address <em>*</em></label>
+            <input type="text" name="street" placeholder="House no., Street, Locality" required/>
+            <span class="err"></span>
+          </div>
+          <div class="field">
+            <label>City <em>*</em></label>
+            <input type="text" name="city" placeholder="e.g. Pune" required/>
+            <span class="err"></span>
+          </div>
+          <div class="field">
+            <label>State <em>*</em></label>
+            <input type="text" name="state" placeholder="e.g. Maharashtra" required/>
+            <span class="err"></span>
+          </div>
+          <div class="field">
+            <label>PIN Code <em>*</em></label>
+            <input type="text" name="pinCode" placeholder="411001" required/>
+            <span class="err"></span>
+          </div>
+          <div class="field">
+            <label>Country <em>*</em></label>
+            <input type="text" name="country" placeholder="India" value="India" required/>
+            <span class="err"></span>
+          </div>
+          <div class="field span2 divider-top">
+            <label>Emergency Contact Name <em>*</em></label>
+            <input type="text" name="emergencyName" placeholder="Parent / Guardian full name" required/>
+            <span class="err"></span>
+          </div>
+          <div class="field">
+            <label>Emergency Phone <em>*</em></label>
+            <input type="tel" name="emergencyPhone" placeholder="+91 99999 00000" required/>
+            <span class="err"></span>
+          </div>
+          <div class="field">
+            <label>Relation</label>
+            <select name="emergencyRelation">
+              <option value="">Select relation</option>
+              <option>Father</option>
+              <option>Mother</option>
+              <option>Guardian</option>
+              <option>Sibling</option>
+              <option>Spouse</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── STEP 4 ── -->
+      <div class="step-panel" id="panel4">
+        <div class="panel-head">
+          <span class="badge">Step 4 / 4</span>
+          <h2>Review & Submit</h2>
+          <p>Please review all your details carefully before final submission.</p>
+        </div>
+        <div class="review-card" id="reviewCard"></div>
+        <div class="field agree-field">
+          <label class="agree-label">
+            <input type="checkbox" name="agree" id="agreeBox"/>
+            <span>I confirm that all information provided is accurate and I agree to the <a href="#">Terms & Conditions</a>.</span>
+          </label>
+          <span class="err" id="agreeErr"></span>
+        </div>
+      </div>
+
+      <!-- NAVIGATION -->
+      <div class="form-actions">
+        <button type="button" class="btn btn-back" id="btnBack" onclick="navigate(-1)" style="display:none">← Back</button>
+        <button type="button" class="btn btn-next" id="btnNext" onclick="navigate(1)">Continue →</button>
+        <button type="submit" class="btn btn-submit" id="btnSubmit" style="display:none">Submit Application ✓</button>
+      </div>
+
+    </form>
+
+    <!-- SUCCESS SCREEN -->
+    <div class="success-screen" id="successScreen" style="display:none">
+      <div class="success-anim">🎉</div>
+      <h2>Application Submitted!</h2>
+      <p>Your student registration has been saved successfully.</p>
+      <div class="app-id-box">
+        <small>Your Application ID</small>
+        <strong id="appIdDisplay"></strong>
+      </div>
+      <p class="success-note">Keep this ID safe — you'll need it for future reference.</p>
+      <button class="btn btn-next" onclick="resetForm()">Register Another Student</button>
+    </div>
+
+  </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
